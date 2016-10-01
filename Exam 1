@@ -1,0 +1,61 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <h3>CRM Home Page</h3>
+        </div>
+        <div class="col-md-8">
+            <h2>Would you like to add the upgrade option?</h2>
+
+            <table class="table table-hover table-bordered">
+                <tr id="gorow">
+                    <td>
+                        <img src="~/Content/go.jpg" />
+                        <br />
+                        <input type="radio" id="go" />Yes!
+                    </td>
+                </tr>
+                <tr id="stoprow">
+                    <td>
+                        <img src="~/Content/stop.jpg" />
+                        <br />
+                        <input type="radio" id="stop" />No thanks
+                    </td>
+                </tr>
+            </table>
+
+            <button id="submit" class="btn btn-primary">Submit</button>
+            <div id="result">
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script>
+        $().ready(function () {
+
+            $('#go').prop('checked', true);
+
+            $('#gorow').click(function () {
+                $('#go').prop("checked", true)
+                $('#stop').prop("checked", false)
+                $('#result').text("")
+            });
+
+            $('#stoprow').click(function () {
+                $('#stop').prop("checked", true)
+                $('#go').prop("checked", false)
+                $('#result').text("")
+            });
+
+            $('#submit').on("click", function () {
+                if ($('#go').is(':checked')) {
+                    $('#result').text('Upgrade option has been added')
+                }
+                else if ($('#stop').is(':checked')) {
+                    $('#result').text('Are you sure you don"t want our awesome upgrade? Try again!')
+                }
+            });
+        });
+    </script>
+}
