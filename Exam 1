@@ -11,14 +11,14 @@
                     <td>
                         <img src="~/Content/go.jpg" />
                         <br />
-                        <input type="radio" id="go" />Yes!
+                        <input type="radio" id="go" name="upgrade" />Yes!
                     </td>
                 </tr>
                 <tr id="stoprow">
                     <td>
                         <img src="~/Content/stop.jpg" />
                         <br />
-                        <input type="radio" id="stop" />No thanks
+                        <input type="radio" id="stop" name="upgrade" />No thanks
                     </td>
                 </tr>
             </table>
@@ -35,19 +35,6 @@
         $().ready(function () {
 
             $('#go').prop('checked', true);
-
-            $('#gorow').click(function () {
-                $('#go').prop("checked", true)
-                $('#stop').prop("checked", false)
-                $('#result').text("")
-            });
-
-            $('#stoprow').click(function () {
-                $('#stop').prop("checked", true)
-                $('#go').prop("checked", false)
-                $('#result').text("")
-            });
-
             $('#submit').on("click", function () {
                 if ($('#go').is(':checked')) {
                     $('#result').text('Upgrade option has been added')
