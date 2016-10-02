@@ -33,8 +33,20 @@
 @section scripts{
     <script>
         $().ready(function () {
-
             $('#go').prop('checked', true);
+
+            $('#gorow').click(function () {
+                $('#go').prop("checked", true)
+                $('#stop').prop("checked", false)
+                $('#result').text("")
+            });
+
+            $('#stoprow').click(function () {
+                $('#stop').prop("checked", true)
+                $('#go').prop("checked", false)
+                $('#result').text("")
+            });
+
             $('#submit').on("click", function () {
                 if ($('#go').is(':checked')) {
                     $('#result').text('Upgrade option has been added')
